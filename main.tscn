@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://d2toe38jj5xo0"]
+[gd_scene load_steps=2 format=3 uid="uid://d2toe38jj5xo0"]
+
+[ext_resource type="PackedScene" uid="uid://crvbeei36xmj4" path="res://rogue/rogue.tscn" id="1_rv4gm"]
 
 [node name="Root" type="Node2D"]
+
+[node name="Rogue" parent="." instance=ExtResource("1_rv4gm")]
+position = Vector2(600, 300)
