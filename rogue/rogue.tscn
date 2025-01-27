@@ -80,19 +80,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_0r4t7")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 10.0
 }]
 
-[node name="Area2D" type="Area2D"]
+[node name="Rogue" type="Area2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_xwc7t")
+speed = 275
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="RogueCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_j5k04")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="RogueSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n2xk7")
-frame = 4
-frame_progress = 0.106392
+animation = &"idle"
