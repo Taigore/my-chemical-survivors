@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2toe38jj5xo0"]
+[gd_scene load_steps=3 format=3 uid="uid://d2toe38jj5xo0"]
 
 [ext_resource type="PackedScene" uid="uid://crvbeei36xmj4" path="res://rogue/rogue.tscn" id="1_rv4gm"]
+[ext_resource type="Texture2D" uid="uid://xgwjtyy1h1gc" path="res://terrain/Grass_01.png" id="2_i7htg"]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i7htg")
 
 [node name="Rogue" parent="." instance=ExtResource("1_rv4gm")]
 position = Vector2(600, 300)
