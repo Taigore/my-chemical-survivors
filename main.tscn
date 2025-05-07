@@ -1,19 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2toe38jj5xo0"]
+[gd_scene load_steps=6 format=3 uid="uid://d2toe38jj5xo0"]
 
 [ext_resource type="PackedScene" uid="uid://crvbeei36xmj4" path="res://rogue/rogue.tscn" id="1_rv4gm"]
 [ext_resource type="Script" path="res://main.gd" id="1_wnqnn"]
 [ext_resource type="Texture2D" uid="uid://xgwjtyy1h1gc" path="res://terrain/Grass_01.png" id="2_i7htg"]
+[ext_resource type="Shader" path="res://background.gdshader" id="2_lxqjl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjmu3"]
+shader = ExtResource("2_lxqjl")
+shader_parameter/offset = null
+shader_parameter/speedFactor = 2.0
+shader_parameter/size = 512.0
 
 [node name="Root" type="Node"]
 script = ExtResource("1_wnqnn")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_xjmu3")
+scale = Vector2(5, 5)
 texture = ExtResource("2_i7htg")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
 
 [node name="Rogue" parent="." instance=ExtResource("1_rv4gm")]
 position = Vector2(600, 300)
