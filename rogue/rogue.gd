@@ -1,7 +1,7 @@
+class_name Rogue
 extends Area2D
 
 @export var speed : int = 350
-@export var offset = Vector2.ZERO
 @onready var _sprite = $RogueSprite
 
 # Called when the node enters the scene tree for the first time.
@@ -21,4 +21,4 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_left"):
 		move += Vector2.LEFT
 	
-	offset += move.normalized() * speed * delta
+	position += move.normalized() * speed * delta

@@ -1,6 +1,6 @@
+class_name EnemySpider
 extends Area2D
 
-@export var offset = Vector2.ZERO
 @export var speed = 1.0
 @export_storage var player : Node
 
@@ -10,8 +10,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var target : Vector2 = player.offset
-	var distance = target - offset
+	var target : Vector2 = player.position
+	var distance = target - position
 	var direction = distance.normalized()
 	var deltaOffset = delta * speed * direction
-	offset += deltaOffset
+	position += deltaOffset

@@ -15,17 +15,21 @@ shader_parameter/size = 512.0
 [node name="Root" type="Node"]
 script = ExtResource("1_wnqnn")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Rogue" parent="." instance=ExtResource("1_rv4gm")]
+position = Vector2(600, 300)
+
+[node name="Camera2D" type="Camera2D" parent="Rogue"]
+
+[node name="Background" type="Sprite2D" parent="Rogue"]
+z_index = -1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_xjmu3")
-scale = Vector2(5, 5)
+position = Vector2(-1024, -1024)
+scale = Vector2(1, 1)
 texture = ExtResource("2_i7htg")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2048, 2048)
-
-[node name="Rogue" parent="." instance=ExtResource("1_rv4gm")]
-position = Vector2(600, 300)
 
 [node name="EnemySpider" parent="." instance=ExtResource("5_i7sd7")]
 scale = Vector2(5, 5)
