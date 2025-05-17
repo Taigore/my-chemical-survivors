@@ -3,22 +3,18 @@ extends Area2D
 
 @export var speed : int = 350
 @onready var _sprite = $RogueSprite
+var move := Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_sprite.play("idle")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var move = Vector2.ZERO
 	
-	if Input.is_action_pressed("move_up"):
-		move += Vector2.UP
-	if Input.is_action_pressed("move_down"):
-		move += Vector2.DOWN
-	if Input.is_action_pressed("move_right"):
-		move += Vector2.RIGHT
-	if Input.is_action_pressed("move_left"):
-		move += Vector2.LEFT
-	
+func _physics_process(delta: float) -> void:
 	position += move.normalized() * speed * delta
+
+func _process(_delta: float) -> void:
+	move = Input.get_vector(
+		"move_left",
+		"move_right",
+		"move_up",
+		"move_down")
