@@ -85,7 +85,6 @@ animations = [{
 }]
 
 [node name="Rogue" type="Area2D"]
-scale = Vector2(5, 5)
 collision_layer = 2
 script = ExtResource("1_xwc7t")
 speed = 275

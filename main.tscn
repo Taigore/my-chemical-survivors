@@ -3,33 +3,54 @@
 [ext_resource type="PackedScene" uid="uid://crvbeei36xmj4" path="res://rogue/rogue.tscn" id="1_rv4gm"]
 [ext_resource type="Script" path="res://main.gd" id="1_wnqnn"]
 [ext_resource type="Texture2D" uid="uid://xgwjtyy1h1gc" path="res://terrain/Grass_01.png" id="2_i7htg"]
-[ext_resource type="Shader" path="res://background.gdshader" id="2_lxqjl"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="4_d511b"]
 [ext_resource type="PackedScene" uid="uid://bfswo4dig62ej" path="res://enemy_spider/enemy_spider.tscn" id="5_i7sd7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjmu3"]
-shader = ExtResource("2_lxqjl")
-shader_parameter/offset = null
-shader_parameter/speedFactor = 0.2
-shader_parameter/size = 512.0
+[sub_resource type="Curve2D" id="Curve2D_icqmg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -522, -391, 0, 0, 0, 0, 520, -390, 0, 0, 0, 0, 519, 387, 0, 0, 0, 0, -524, 385, 0, 0, 0, 0, -522, -391)
+}
+point_count = 5
 
 [node name="Root" type="Node"]
 script = ExtResource("1_wnqnn")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_i7htg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TimerSpawn" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [node name="Rogue" parent="." groups=["player"] instance=ExtResource("1_rv4gm")]
-position = Vector2(600, 300)
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="Rogue"]
 
-[node name="Background" type="Sprite2D" parent="Rogue"]
-z_index = -1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_xjmu3")
-position = Vector2(-1024, -1024)
-texture = ExtResource("2_i7htg")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 2048, 2048)
+[node name="EnemySpawner" type="Path2D" parent="Rogue" node_paths=PackedStringArray("spawn_node")]
+position = Vector2(0.107871, 2.10666)
+scale = Vector2(1.05396, 0.803342)
+curve = SubResource("Curve2D_icqmg")
+script = ExtResource("4_d511b")
+spawn_node = NodePath("../..")
+spawn_list = Array[PackedScene]([ExtResource("5_i7sd7")])
 
-[node name="EnemySpider" parent="." instance=ExtResource("5_i7sd7")]
-scale = Vector2(5, 5)
-speed = 100.0
+[node name="PositionSpawn" type="PathFollow2D" parent="Rogue/EnemySpawner"]
+unique_name_in_owner = true
+position = Vector2(-522, -391)
+rotation = 0.000959693
+scale = Vector2(1, 1)
+
+[connection signal="timeout" from="TimerSpawn" to="Rogue/EnemySpawner" method="_on_timer_spawn_timeout"]
