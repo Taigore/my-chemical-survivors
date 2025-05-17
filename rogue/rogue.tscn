@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://crvbeei36xmj4"]
 
-[ext_resource type="Script" path="res://rogue/rogue.gd" id="1_xwc7t"]
+[ext_resource type="Script" uid="uid://d0x0xdfw4p56h" path="res://rogue/rogue.gd" id="1_xwc7t"]
 [ext_resource type="Texture2D" uid="uid://bj0cb7t8uu6wg" path="res://rogue/rogue spritesheet calciumtrice.png" id="2_tcv1g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j5k04"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfswo4dig62ej"]
 
 [ext_resource type="Texture2D" uid="uid://dnrslp7m2j7bm" path="res://rpgcritters2.png" id="1_6chp6"]
-[ext_resource type="Script" path="res://enemy_spider/enemy_spider.gd" id="1_dilb3"]
+[ext_resource type="Script" uid="uid://chapghbd8bhfy" path="res://enemy_spider/enemy_spider.gd" id="1_dilb3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgd8q"]
 radius = 9.29423

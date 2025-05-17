@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2toe38jj5xo0"]
 
 [ext_resource type="PackedScene" uid="uid://crvbeei36xmj4" path="res://rogue/rogue.tscn" id="1_rv4gm"]
-[ext_resource type="Script" path="res://main.gd" id="1_wnqnn"]
+[ext_resource type="Script" uid="uid://dj6lpngjty523" path="res://main.gd" id="1_wnqnn"]
 [ext_resource type="Texture2D" uid="uid://xgwjtyy1h1gc" path="res://terrain/Grass_01.png" id="2_i7htg"]
-[ext_resource type="Script" path="res://enemy_spawner.gd" id="4_d511b"]
+[ext_resource type="Script" uid="uid://dvqsxsbruq587" path="res://enemy_spawner.gd" id="4_d511b"]
 [ext_resource type="PackedScene" uid="uid://bfswo4dig62ej" path="res://enemy_spider/enemy_spider.tscn" id="5_i7sd7"]
 
 [sub_resource type="Curve2D" id="Curve2D_icqmg"]
