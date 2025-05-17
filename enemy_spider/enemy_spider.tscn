@@ -15,6 +15,7 @@ region = Rect2(0, 0, 30, 24)
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_dilb3")
+speed = 100.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
